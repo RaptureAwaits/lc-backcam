@@ -1,0 +1,10 @@
+{
+    "name": "Reverse Camera Keybind",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/RaptureAwaits/lc-backcam",
+    "description": "Gameplay mod for hit video game Lethal Company. Adds a customizable keybind that reverses the game camera, allowing you to see what's been making the second set of footsteps you've been hearing...",
+    "dependencies": [
+      "BepInEx-BepInExPack-5.4.2100",
+      "Rune580-LethalCompany_InputUtils-0.7.7"
+    ]
+}
