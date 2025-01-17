@@ -121,6 +121,7 @@ namespace LCBackCam.Patches {
             // Create backwards facing camera
             if (b.backcam == null) {
                 b.CreateBackCam(___gameplayCamera);
+                b.visor_renderer = __instance.localVisor.transform.GetChild(0).GetComponent<Renderer>();
                 modlog.LogInfo($"[{__instance.OwnerClientId}] Created reverse camera.");
             }
 
@@ -140,6 +141,8 @@ namespace LCBackCam.Patches {
                     ___gameplayCamera.enabled = false;
                     __instance.thisPlayerModelArms.enabled = false;
                     __instance.thisPlayerModel.shadowCastingMode = ShadowCastingMode.On;
+
+                    b.visor_renderer.enabled = false;
                     b.cam_reversed = true;
                 }
             }
@@ -151,7 +154,9 @@ namespace LCBackCam.Patches {
                     StartOfRound.Instance.SwitchCamera(___gameplayCamera);
                     __instance.thisPlayerModelArms.enabled = true;
                     __instance.thisPlayerModel.shadowCastingMode = ShadowCastingMode.ShadowsOnly;
+
                     b.backcam.enabled = false;
+                    b.visor_renderer.enabled = true;
                     b.cam_reversed = false;
                 }
             }
@@ -174,6 +179,7 @@ namespace LCBackCam.Patches {
             // Reset values that are set at round start
             LCBackCamBase.instance.backcam = null;
             LCBackCamBase.instance.cam_reversed = false;
+            LCBackCamBase.instance.visor_renderer = null;
         }
     }
 }
